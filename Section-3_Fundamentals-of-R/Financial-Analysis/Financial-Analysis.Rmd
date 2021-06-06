@@ -32,46 +32,52 @@ expenses <- c(12051.82, 5695.07, 12319.20, 12089.72, 8658.57, 840.20, 3285.73, 5
 
 # Profit for each month----
 
-profit <- revenue - expenses 
+profit <- round(revenue - expenses, digits=2)
 print(as.integer(profit))
 
 # Profit after tax for each month (30% tax rate)----
 
-taxedprofit <- profit * 0.7
+taxedprofit <- round(profit * 0.7,digits=2)
 print(as.integer(taxedprofit))
 
 
 # Profit margin for each month - equals to profit after tax divided by revenue----
 
-profitmargin <- (taxedprofit/revenue)*100
+profitmargin <- round((taxedprofit/revenue)*100,digits=2)
 print(as.integer(profitmargin))
 
 # Good months - where the profit after tax was greater than the mean for the year----
 
 taxedprofitmean <- mean(taxedprofit)
 
-monthcounter <- 1
-
-for(i in taxedprofit){if(i>taxedprofitmean){print(monthcounter)
-  
-  }
-monthcounter <- monthcounter+1}
+goodmonths <- taxedprofit > taxedprofitmean
+print(goodmonths)
 
 # Bad months - where the profit after tax was less than the mean for the year----
 
-monthcounter <- 1
-
-for(i in taxedprofit){if(i<taxedprofitmean){print(monthcounter)
-  
-}
-  monthcounter <- monthcounter+1}
+badmonths <- taxedprofit < taxedprofitmean
+print(badmonths)
 
 # The best month - where the profit after tax was max for the year----
 
-print(which.max(taxedprofit))
+bestmonth <- which.max(taxedprofit)
+print(bestmonth)
 
 # The worst month - where the profit after tax was min for the year----
 
-print(which.min(taxedprofit))
+worstmonth <- which.min(taxedprofit)
+print(worstmonth)
 
-```
+# Units of 1000 ----
+
+revenue.1000 <- round(revenue/1000)
+expenses.1000 <- round(expenses/1000)
+profit.1000 <- round(profit/1000)
+taxedprofit.1000 <- round(taxedprofit/1000)
+
+#Outputs----
+print(revenue.1000)
+print(expenses.1000)
+print(profit.1000)
+print(taxedprofit.1000)
+
