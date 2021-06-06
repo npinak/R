@@ -1,0 +1,1 @@
+- Vectorized approach to R vs Unvectorized approach to R
