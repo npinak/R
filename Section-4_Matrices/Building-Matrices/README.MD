@@ -1,1 +1,1 @@
-- How to make matrices
+-  Course section on how to make matrices.
