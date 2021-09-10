@@ -1,2 +1,1 @@
 - Exercises to learn the R Language.
-- These exercises are from a course by 
