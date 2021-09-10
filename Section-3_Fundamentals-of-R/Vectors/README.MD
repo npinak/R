@@ -1,1 +1,0 @@
-- Exercises from section 3 of the R programming course I took.

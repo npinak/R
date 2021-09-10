@@ -1,0 +1,32 @@
+# Matrices----
+
+
+# rbind() -- row bind
+# cbind() -- column bind
+
+
+my.data <- 1:20
+
+A <- matrix(my.data, 4, 5)
+A
+
+
+B <- matrix(my.data, 4, 5, byrow=T)
+B
+
+
+# Get to 10 
+B[2,5]
+
+
+#rbind
+
+r1 <- c("I", "am" , "happy")
+r2 <- c("what" ,"a", "day")
+r3 <- c(1,2,3)
+C <- rbind(r1,r2,r3)
+C
+
+#cbind
+D <- cbind(r1,r2,r3)
+D

@@ -1,4 +1,0 @@
-- Financial Analysis of a hypothetical company.
-- Click on the pdf to view. 
-- Please take a look.
-- This project is from a course by Kirill Eremenko: [Super Data Science](https://www.superdatascience.com)

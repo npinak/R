@@ -1,0 +1,301 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Matrix Operations \& Vizualizing with Matplot},
+  pdfauthor={Pinak Nayak},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Matrix Operations \& Vizualizing with Matplot}
+\author{Pinak Nayak}
+\date{07/06/2021}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Seasons}
+\NormalTok{Seasons <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"2005"}\NormalTok{,}\StringTok{"2006"}\NormalTok{,}\StringTok{"2007"}\NormalTok{,}\StringTok{"2008"}\NormalTok{,}\StringTok{"2009"}\NormalTok{,}\StringTok{"2010"}\NormalTok{,}\StringTok{"2011"}\NormalTok{,}\StringTok{"2012"}\NormalTok{,}\StringTok{"2013"}\NormalTok{,}\StringTok{"2014"}\NormalTok{)}
+
+\CommentTok{#Players}
+\NormalTok{Players <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"KobeBryant"}\NormalTok{,}\StringTok{"JoeJohnson"}\NormalTok{,}\StringTok{"LeBronJames"}\NormalTok{,}\StringTok{"CarmeloAnthony"}\NormalTok{,}\StringTok{"DwightHoward"}\NormalTok{,}\StringTok{"ChrisBosh"}\NormalTok{,}\StringTok{"ChrisPaul"}\NormalTok{,}\StringTok{"KevinDurant"}\NormalTok{,}\StringTok{"DerrickRose"}\NormalTok{,}\StringTok{"DwayneWade"}\NormalTok{)}
+
+\CommentTok{#Salaries}
+\NormalTok{KobeBryant_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{15946875}\NormalTok{,}\DecValTok{17718750}\NormalTok{,}\DecValTok{19490625}\NormalTok{,}\DecValTok{21262500}\NormalTok{,}\DecValTok{23034375}\NormalTok{,}\DecValTok{24806250}\NormalTok{,}\DecValTok{25244493}\NormalTok{,}\DecValTok{27849149}\NormalTok{,}\DecValTok{30453805}\NormalTok{,}\DecValTok{23500000}\NormalTok{)}
+\NormalTok{JoeJohnson_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{12000000}\NormalTok{,}\DecValTok{12744189}\NormalTok{,}\DecValTok{13488377}\NormalTok{,}\DecValTok{14232567}\NormalTok{,}\DecValTok{14976754}\NormalTok{,}\DecValTok{16324500}\NormalTok{,}\DecValTok{18038573}\NormalTok{,}\DecValTok{19752645}\NormalTok{,}\DecValTok{21466718}\NormalTok{,}\DecValTok{23180790}\NormalTok{)}
+\NormalTok{LeBronJames_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{4621800}\NormalTok{,}\DecValTok{5828090}\NormalTok{,}\DecValTok{13041250}\NormalTok{,}\DecValTok{14410581}\NormalTok{,}\DecValTok{15779912}\NormalTok{,}\DecValTok{14500000}\NormalTok{,}\DecValTok{16022500}\NormalTok{,}\DecValTok{17545000}\NormalTok{,}\DecValTok{19067500}\NormalTok{,}\DecValTok{20644400}\NormalTok{)}
+\NormalTok{CarmeloAnthony_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3713640}\NormalTok{,}\DecValTok{4694041}\NormalTok{,}\DecValTok{13041250}\NormalTok{,}\DecValTok{14410581}\NormalTok{,}\DecValTok{15779912}\NormalTok{,}\DecValTok{17149243}\NormalTok{,}\DecValTok{18518574}\NormalTok{,}\DecValTok{19450000}\NormalTok{,}\DecValTok{22407474}\NormalTok{,}\DecValTok{22458000}\NormalTok{)}
+\NormalTok{DwightHoward_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{4493160}\NormalTok{,}\DecValTok{4806720}\NormalTok{,}\DecValTok{6061274}\NormalTok{,}\DecValTok{13758000}\NormalTok{,}\DecValTok{15202590}\NormalTok{,}\DecValTok{16647180}\NormalTok{,}\DecValTok{18091770}\NormalTok{,}\DecValTok{19536360}\NormalTok{,}\DecValTok{20513178}\NormalTok{,}\DecValTok{21436271}\NormalTok{)}
+\NormalTok{ChrisBosh_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3348000}\NormalTok{,}\DecValTok{4235220}\NormalTok{,}\DecValTok{12455000}\NormalTok{,}\DecValTok{14410581}\NormalTok{,}\DecValTok{15779912}\NormalTok{,}\DecValTok{14500000}\NormalTok{,}\DecValTok{16022500}\NormalTok{,}\DecValTok{17545000}\NormalTok{,}\DecValTok{19067500}\NormalTok{,}\DecValTok{20644400}\NormalTok{)}
+\NormalTok{ChrisPaul_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3144240}\NormalTok{,}\DecValTok{3380160}\NormalTok{,}\DecValTok{3615960}\NormalTok{,}\DecValTok{4574189}\NormalTok{,}\DecValTok{13520500}\NormalTok{,}\DecValTok{14940153}\NormalTok{,}\DecValTok{16359805}\NormalTok{,}\DecValTok{17779458}\NormalTok{,}\DecValTok{18668431}\NormalTok{,}\DecValTok{20068563}\NormalTok{)}
+\NormalTok{KevinDurant_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{4171200}\NormalTok{,}\DecValTok{4484040}\NormalTok{,}\DecValTok{4796880}\NormalTok{,}\DecValTok{6053663}\NormalTok{,}\DecValTok{15506632}\NormalTok{,}\DecValTok{16669630}\NormalTok{,}\DecValTok{17832627}\NormalTok{,}\DecValTok{18995624}\NormalTok{)}
+\NormalTok{DerrickRose_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{4822800}\NormalTok{,}\DecValTok{5184480}\NormalTok{,}\DecValTok{5546160}\NormalTok{,}\DecValTok{6993708}\NormalTok{,}\DecValTok{16402500}\NormalTok{,}\DecValTok{17632688}\NormalTok{,}\DecValTok{18862875}\NormalTok{)}
+\NormalTok{DwayneWade_Salary <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3031920}\NormalTok{,}\DecValTok{3841443}\NormalTok{,}\DecValTok{13041250}\NormalTok{,}\DecValTok{14410581}\NormalTok{,}\DecValTok{15779912}\NormalTok{,}\DecValTok{14200000}\NormalTok{,}\DecValTok{15691000}\NormalTok{,}\DecValTok{17182000}\NormalTok{,}\DecValTok{18673000}\NormalTok{,}\DecValTok{15000000}\NormalTok{)}
+\CommentTok{#Matrix}
+\NormalTok{Salary <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(KobeBryant_Salary, JoeJohnson_Salary, LeBronJames_Salary, CarmeloAnthony_Salary, DwightHoward_Salary, ChrisBosh_Salary, ChrisPaul_Salary, KevinDurant_Salary, DerrickRose_Salary, DwayneWade_Salary)}
+\KeywordTok{rm}\NormalTok{(KobeBryant_Salary, JoeJohnson_Salary, CarmeloAnthony_Salary, DwightHoward_Salary, ChrisBosh_Salary, LeBronJames_Salary, ChrisPaul_Salary, DerrickRose_Salary, DwayneWade_Salary, KevinDurant_Salary)}
+\KeywordTok{colnames}\NormalTok{(Salary) <-}\StringTok{ }\NormalTok{Seasons}
+\KeywordTok{rownames}\NormalTok{(Salary) <-}\StringTok{ }\NormalTok{Players}
+
+\CommentTok{#Games }
+\NormalTok{KobeBryant_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{80}\NormalTok{,}\DecValTok{77}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{73}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{58}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{35}\NormalTok{)}
+\NormalTok{JoeJohnson_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{82}\NormalTok{,}\DecValTok{57}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{79}\NormalTok{,}\DecValTok{76}\NormalTok{,}\DecValTok{72}\NormalTok{,}\DecValTok{60}\NormalTok{,}\DecValTok{72}\NormalTok{,}\DecValTok{79}\NormalTok{,}\DecValTok{80}\NormalTok{)}
+\NormalTok{LeBronJames_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{79}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{75}\NormalTok{,}\DecValTok{81}\NormalTok{,}\DecValTok{76}\NormalTok{,}\DecValTok{79}\NormalTok{,}\DecValTok{62}\NormalTok{,}\DecValTok{76}\NormalTok{,}\DecValTok{77}\NormalTok{,}\DecValTok{69}\NormalTok{)}
+\NormalTok{CarmeloAnthony_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{80}\NormalTok{,}\DecValTok{65}\NormalTok{,}\DecValTok{77}\NormalTok{,}\DecValTok{66}\NormalTok{,}\DecValTok{69}\NormalTok{,}\DecValTok{77}\NormalTok{,}\DecValTok{55}\NormalTok{,}\DecValTok{67}\NormalTok{,}\DecValTok{77}\NormalTok{,}\DecValTok{40}\NormalTok{)}
+\NormalTok{DwightHoward_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{82}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{79}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{54}\NormalTok{,}\DecValTok{76}\NormalTok{,}\DecValTok{71}\NormalTok{,}\DecValTok{41}\NormalTok{)}
+\NormalTok{ChrisBosh_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{70}\NormalTok{,}\DecValTok{69}\NormalTok{,}\DecValTok{67}\NormalTok{,}\DecValTok{77}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{77}\NormalTok{,}\DecValTok{57}\NormalTok{,}\DecValTok{74}\NormalTok{,}\DecValTok{79}\NormalTok{,}\DecValTok{44}\NormalTok{)}
+\NormalTok{ChrisPaul_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{78}\NormalTok{,}\DecValTok{64}\NormalTok{,}\DecValTok{80}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{45}\NormalTok{,}\DecValTok{80}\NormalTok{,}\DecValTok{60}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{62}\NormalTok{,}\DecValTok{82}\NormalTok{)}
+\NormalTok{KevinDurant_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{,}\DecValTok{35}\NormalTok{,}\DecValTok{80}\NormalTok{,}\DecValTok{74}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{66}\NormalTok{,}\DecValTok{81}\NormalTok{,}\DecValTok{81}\NormalTok{,}\DecValTok{27}\NormalTok{)}
+\NormalTok{DerrickRose_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{40}\NormalTok{,}\DecValTok{40}\NormalTok{,}\DecValTok{40}\NormalTok{,}\DecValTok{81}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{81}\NormalTok{,}\DecValTok{39}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{51}\NormalTok{)}
+\NormalTok{DwayneWade_G <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{75}\NormalTok{,}\DecValTok{51}\NormalTok{,}\DecValTok{51}\NormalTok{,}\DecValTok{79}\NormalTok{,}\DecValTok{77}\NormalTok{,}\DecValTok{76}\NormalTok{,}\DecValTok{49}\NormalTok{,}\DecValTok{69}\NormalTok{,}\DecValTok{54}\NormalTok{,}\DecValTok{62}\NormalTok{)}
+\CommentTok{#Matrix}
+\NormalTok{Games <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(KobeBryant_G, JoeJohnson_G, LeBronJames_G, CarmeloAnthony_G, DwightHoward_G, ChrisBosh_G, ChrisPaul_G, KevinDurant_G, DerrickRose_G, DwayneWade_G)}
+\KeywordTok{rm}\NormalTok{(KobeBryant_G, JoeJohnson_G, CarmeloAnthony_G, DwightHoward_G, ChrisBosh_G, LeBronJames_G, ChrisPaul_G, DerrickRose_G, DwayneWade_G, KevinDurant_G)}
+\KeywordTok{colnames}\NormalTok{(Games) <-}\StringTok{ }\NormalTok{Seasons}
+\KeywordTok{rownames}\NormalTok{(Games) <-}\StringTok{ }\NormalTok{Players}
+
+\CommentTok{#Minutes Played}
+\NormalTok{KobeBryant_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3277}\NormalTok{,}\DecValTok{3140}\NormalTok{,}\DecValTok{3192}\NormalTok{,}\DecValTok{2960}\NormalTok{,}\DecValTok{2835}\NormalTok{,}\DecValTok{2779}\NormalTok{,}\DecValTok{2232}\NormalTok{,}\DecValTok{3013}\NormalTok{,}\DecValTok{177}\NormalTok{,}\DecValTok{1207}\NormalTok{)}
+\NormalTok{JoeJohnson_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3340}\NormalTok{,}\DecValTok{2359}\NormalTok{,}\DecValTok{3343}\NormalTok{,}\DecValTok{3124}\NormalTok{,}\DecValTok{2886}\NormalTok{,}\DecValTok{2554}\NormalTok{,}\DecValTok{2127}\NormalTok{,}\DecValTok{2642}\NormalTok{,}\DecValTok{2575}\NormalTok{,}\DecValTok{2791}\NormalTok{)}
+\NormalTok{LeBronJames_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3361}\NormalTok{,}\DecValTok{3190}\NormalTok{,}\DecValTok{3027}\NormalTok{,}\DecValTok{3054}\NormalTok{,}\DecValTok{2966}\NormalTok{,}\DecValTok{3063}\NormalTok{,}\DecValTok{2326}\NormalTok{,}\DecValTok{2877}\NormalTok{,}\DecValTok{2902}\NormalTok{,}\DecValTok{2493}\NormalTok{)}
+\NormalTok{CarmeloAnthony_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2941}\NormalTok{,}\DecValTok{2486}\NormalTok{,}\DecValTok{2806}\NormalTok{,}\DecValTok{2277}\NormalTok{,}\DecValTok{2634}\NormalTok{,}\DecValTok{2751}\NormalTok{,}\DecValTok{1876}\NormalTok{,}\DecValTok{2482}\NormalTok{,}\DecValTok{2982}\NormalTok{,}\DecValTok{1428}\NormalTok{)}
+\NormalTok{DwightHoward_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3021}\NormalTok{,}\DecValTok{3023}\NormalTok{,}\DecValTok{3088}\NormalTok{,}\DecValTok{2821}\NormalTok{,}\DecValTok{2843}\NormalTok{,}\DecValTok{2935}\NormalTok{,}\DecValTok{2070}\NormalTok{,}\DecValTok{2722}\NormalTok{,}\DecValTok{2396}\NormalTok{,}\DecValTok{1223}\NormalTok{)}
+\NormalTok{ChrisBosh_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2751}\NormalTok{,}\DecValTok{2658}\NormalTok{,}\DecValTok{2425}\NormalTok{,}\DecValTok{2928}\NormalTok{,}\DecValTok{2526}\NormalTok{,}\DecValTok{2795}\NormalTok{,}\DecValTok{2007}\NormalTok{,}\DecValTok{2454}\NormalTok{,}\DecValTok{2531}\NormalTok{,}\DecValTok{1556}\NormalTok{)}
+\NormalTok{ChrisPaul_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2808}\NormalTok{,}\DecValTok{2353}\NormalTok{,}\DecValTok{3006}\NormalTok{,}\DecValTok{3002}\NormalTok{,}\DecValTok{1712}\NormalTok{,}\DecValTok{2880}\NormalTok{,}\DecValTok{2181}\NormalTok{,}\DecValTok{2335}\NormalTok{,}\DecValTok{2171}\NormalTok{,}\DecValTok{2857}\NormalTok{)}
+\NormalTok{KevinDurant_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1255}\NormalTok{,}\DecValTok{1255}\NormalTok{,}\DecValTok{2768}\NormalTok{,}\DecValTok{2885}\NormalTok{,}\DecValTok{3239}\NormalTok{,}\DecValTok{3038}\NormalTok{,}\DecValTok{2546}\NormalTok{,}\DecValTok{3119}\NormalTok{,}\DecValTok{3122}\NormalTok{,}\DecValTok{913}\NormalTok{)}
+\NormalTok{DerrickRose_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1168}\NormalTok{,}\DecValTok{1168}\NormalTok{,}\DecValTok{1168}\NormalTok{,}\DecValTok{3000}\NormalTok{,}\DecValTok{2871}\NormalTok{,}\DecValTok{3026}\NormalTok{,}\DecValTok{1375}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{311}\NormalTok{,}\DecValTok{1530}\NormalTok{)}
+\NormalTok{DwayneWade_MP <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2892}\NormalTok{,}\DecValTok{1931}\NormalTok{,}\DecValTok{1954}\NormalTok{,}\DecValTok{3048}\NormalTok{,}\DecValTok{2792}\NormalTok{,}\DecValTok{2823}\NormalTok{,}\DecValTok{1625}\NormalTok{,}\DecValTok{2391}\NormalTok{,}\DecValTok{1775}\NormalTok{,}\DecValTok{1971}\NormalTok{)}
+\CommentTok{#Matrix}
+\NormalTok{MinutesPlayed <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(KobeBryant_MP, JoeJohnson_MP, LeBronJames_MP, CarmeloAnthony_MP, DwightHoward_MP, ChrisBosh_MP, ChrisPaul_MP, KevinDurant_MP, DerrickRose_MP, DwayneWade_MP)}
+\KeywordTok{rm}\NormalTok{(KobeBryant_MP, JoeJohnson_MP, CarmeloAnthony_MP, DwightHoward_MP, ChrisBosh_MP, LeBronJames_MP, ChrisPaul_MP, DerrickRose_MP, DwayneWade_MP, KevinDurant_MP)}
+\KeywordTok{colnames}\NormalTok{(MinutesPlayed) <-}\StringTok{ }\NormalTok{Seasons}
+\KeywordTok{rownames}\NormalTok{(MinutesPlayed) <-}\StringTok{ }\NormalTok{Players}
+
+\CommentTok{#Field Goals}
+\NormalTok{KobeBryant_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{978}\NormalTok{,}\DecValTok{813}\NormalTok{,}\DecValTok{775}\NormalTok{,}\DecValTok{800}\NormalTok{,}\DecValTok{716}\NormalTok{,}\DecValTok{740}\NormalTok{,}\DecValTok{574}\NormalTok{,}\DecValTok{738}\NormalTok{,}\DecValTok{31}\NormalTok{,}\DecValTok{266}\NormalTok{)}
+\NormalTok{JoeJohnson_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{632}\NormalTok{,}\DecValTok{536}\NormalTok{,}\DecValTok{647}\NormalTok{,}\DecValTok{620}\NormalTok{,}\DecValTok{635}\NormalTok{,}\DecValTok{514}\NormalTok{,}\DecValTok{423}\NormalTok{,}\DecValTok{445}\NormalTok{,}\DecValTok{462}\NormalTok{,}\DecValTok{446}\NormalTok{)}
+\NormalTok{LeBronJames_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{875}\NormalTok{,}\DecValTok{772}\NormalTok{,}\DecValTok{794}\NormalTok{,}\DecValTok{789}\NormalTok{,}\DecValTok{768}\NormalTok{,}\DecValTok{758}\NormalTok{,}\DecValTok{621}\NormalTok{,}\DecValTok{765}\NormalTok{,}\DecValTok{767}\NormalTok{,}\DecValTok{624}\NormalTok{)}
+\NormalTok{CarmeloAnthony_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{756}\NormalTok{,}\DecValTok{691}\NormalTok{,}\DecValTok{728}\NormalTok{,}\DecValTok{535}\NormalTok{,}\DecValTok{688}\NormalTok{,}\DecValTok{684}\NormalTok{,}\DecValTok{441}\NormalTok{,}\DecValTok{669}\NormalTok{,}\DecValTok{743}\NormalTok{,}\DecValTok{358}\NormalTok{)}
+\NormalTok{DwightHoward_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{468}\NormalTok{,}\DecValTok{526}\NormalTok{,}\DecValTok{583}\NormalTok{,}\DecValTok{560}\NormalTok{,}\DecValTok{510}\NormalTok{,}\DecValTok{619}\NormalTok{,}\DecValTok{416}\NormalTok{,}\DecValTok{470}\NormalTok{,}\DecValTok{473}\NormalTok{,}\DecValTok{251}\NormalTok{)}
+\NormalTok{ChrisBosh_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{549}\NormalTok{,}\DecValTok{543}\NormalTok{,}\DecValTok{507}\NormalTok{,}\DecValTok{615}\NormalTok{,}\DecValTok{600}\NormalTok{,}\DecValTok{524}\NormalTok{,}\DecValTok{393}\NormalTok{,}\DecValTok{485}\NormalTok{,}\DecValTok{492}\NormalTok{,}\DecValTok{343}\NormalTok{)}
+\NormalTok{ChrisPaul_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{407}\NormalTok{,}\DecValTok{381}\NormalTok{,}\DecValTok{630}\NormalTok{,}\DecValTok{631}\NormalTok{,}\DecValTok{314}\NormalTok{,}\DecValTok{430}\NormalTok{,}\DecValTok{425}\NormalTok{,}\DecValTok{412}\NormalTok{,}\DecValTok{406}\NormalTok{,}\DecValTok{568}\NormalTok{)}
+\NormalTok{KevinDurant_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{306}\NormalTok{,}\DecValTok{306}\NormalTok{,}\DecValTok{587}\NormalTok{,}\DecValTok{661}\NormalTok{,}\DecValTok{794}\NormalTok{,}\DecValTok{711}\NormalTok{,}\DecValTok{643}\NormalTok{,}\DecValTok{731}\NormalTok{,}\DecValTok{849}\NormalTok{,}\DecValTok{238}\NormalTok{)}
+\NormalTok{DerrickRose_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{208}\NormalTok{,}\DecValTok{208}\NormalTok{,}\DecValTok{208}\NormalTok{,}\DecValTok{574}\NormalTok{,}\DecValTok{672}\NormalTok{,}\DecValTok{711}\NormalTok{,}\DecValTok{302}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{58}\NormalTok{,}\DecValTok{338}\NormalTok{)}
+\NormalTok{DwayneWade_FG <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{699}\NormalTok{,}\DecValTok{472}\NormalTok{,}\DecValTok{439}\NormalTok{,}\DecValTok{854}\NormalTok{,}\DecValTok{719}\NormalTok{,}\DecValTok{692}\NormalTok{,}\DecValTok{416}\NormalTok{,}\DecValTok{569}\NormalTok{,}\DecValTok{415}\NormalTok{,}\DecValTok{509}\NormalTok{)}
+\CommentTok{#Matrix}
+\NormalTok{FieldGoals <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(KobeBryant_FG, JoeJohnson_FG, LeBronJames_FG, CarmeloAnthony_FG, DwightHoward_FG, ChrisBosh_FG, ChrisPaul_FG, KevinDurant_FG, DerrickRose_FG, DwayneWade_FG)}
+\KeywordTok{rm}\NormalTok{(KobeBryant_FG, JoeJohnson_FG, LeBronJames_FG, CarmeloAnthony_FG, DwightHoward_FG, ChrisBosh_FG, ChrisPaul_FG, KevinDurant_FG, DerrickRose_FG, DwayneWade_FG)}
+\KeywordTok{colnames}\NormalTok{(FieldGoals) <-}\StringTok{ }\NormalTok{Seasons}
+\KeywordTok{rownames}\NormalTok{(FieldGoals) <-}\StringTok{ }\NormalTok{Players}
+
+\CommentTok{#Field Goal Attempts}
+\NormalTok{KobeBryant_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2173}\NormalTok{,}\DecValTok{1757}\NormalTok{,}\DecValTok{1690}\NormalTok{,}\DecValTok{1712}\NormalTok{,}\DecValTok{1569}\NormalTok{,}\DecValTok{1639}\NormalTok{,}\DecValTok{1336}\NormalTok{,}\DecValTok{1595}\NormalTok{,}\DecValTok{73}\NormalTok{,}\DecValTok{713}\NormalTok{)}
+\NormalTok{JoeJohnson_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1395}\NormalTok{,}\DecValTok{1139}\NormalTok{,}\DecValTok{1497}\NormalTok{,}\DecValTok{1420}\NormalTok{,}\DecValTok{1386}\NormalTok{,}\DecValTok{1161}\NormalTok{,}\DecValTok{931}\NormalTok{,}\DecValTok{1052}\NormalTok{,}\DecValTok{1018}\NormalTok{,}\DecValTok{1025}\NormalTok{)}
+\NormalTok{LeBronJames_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1823}\NormalTok{,}\DecValTok{1621}\NormalTok{,}\DecValTok{1642}\NormalTok{,}\DecValTok{1613}\NormalTok{,}\DecValTok{1528}\NormalTok{,}\DecValTok{1485}\NormalTok{,}\DecValTok{1169}\NormalTok{,}\DecValTok{1354}\NormalTok{,}\DecValTok{1353}\NormalTok{,}\DecValTok{1279}\NormalTok{)}
+\NormalTok{CarmeloAnthony_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1572}\NormalTok{,}\DecValTok{1453}\NormalTok{,}\DecValTok{1481}\NormalTok{,}\DecValTok{1207}\NormalTok{,}\DecValTok{1502}\NormalTok{,}\DecValTok{1503}\NormalTok{,}\DecValTok{1025}\NormalTok{,}\DecValTok{1489}\NormalTok{,}\DecValTok{1643}\NormalTok{,}\DecValTok{806}\NormalTok{)}
+\NormalTok{DwightHoward_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{881}\NormalTok{,}\DecValTok{873}\NormalTok{,}\DecValTok{974}\NormalTok{,}\DecValTok{979}\NormalTok{,}\DecValTok{834}\NormalTok{,}\DecValTok{1044}\NormalTok{,}\DecValTok{726}\NormalTok{,}\DecValTok{813}\NormalTok{,}\DecValTok{800}\NormalTok{,}\DecValTok{423}\NormalTok{)}
+\NormalTok{ChrisBosh_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1087}\NormalTok{,}\DecValTok{1094}\NormalTok{,}\DecValTok{1027}\NormalTok{,}\DecValTok{1263}\NormalTok{,}\DecValTok{1158}\NormalTok{,}\DecValTok{1056}\NormalTok{,}\DecValTok{807}\NormalTok{,}\DecValTok{907}\NormalTok{,}\DecValTok{953}\NormalTok{,}\DecValTok{745}\NormalTok{)}
+\NormalTok{ChrisPaul_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{947}\NormalTok{,}\DecValTok{871}\NormalTok{,}\DecValTok{1291}\NormalTok{,}\DecValTok{1255}\NormalTok{,}\DecValTok{637}\NormalTok{,}\DecValTok{928}\NormalTok{,}\DecValTok{890}\NormalTok{,}\DecValTok{856}\NormalTok{,}\DecValTok{870}\NormalTok{,}\DecValTok{1170}\NormalTok{)}
+\NormalTok{KevinDurant_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{647}\NormalTok{,}\DecValTok{647}\NormalTok{,}\DecValTok{1366}\NormalTok{,}\DecValTok{1390}\NormalTok{,}\DecValTok{1668}\NormalTok{,}\DecValTok{1538}\NormalTok{,}\DecValTok{1297}\NormalTok{,}\DecValTok{1433}\NormalTok{,}\DecValTok{1688}\NormalTok{,}\DecValTok{467}\NormalTok{)}
+\NormalTok{DerrickRose_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{436}\NormalTok{,}\DecValTok{436}\NormalTok{,}\DecValTok{436}\NormalTok{,}\DecValTok{1208}\NormalTok{,}\DecValTok{1373}\NormalTok{,}\DecValTok{1597}\NormalTok{,}\DecValTok{695}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{164}\NormalTok{,}\DecValTok{835}\NormalTok{)}
+\NormalTok{DwayneWade_FGA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1413}\NormalTok{,}\DecValTok{962}\NormalTok{,}\DecValTok{937}\NormalTok{,}\DecValTok{1739}\NormalTok{,}\DecValTok{1511}\NormalTok{,}\DecValTok{1384}\NormalTok{,}\DecValTok{837}\NormalTok{,}\DecValTok{1093}\NormalTok{,}\DecValTok{761}\NormalTok{,}\DecValTok{1084}\NormalTok{)}
+\CommentTok{#Matrix}
+\NormalTok{FieldGoalAttempts <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(KobeBryant_FGA, JoeJohnson_FGA, LeBronJames_FGA, CarmeloAnthony_FGA, DwightHoward_FGA, ChrisBosh_FGA, ChrisPaul_FGA, KevinDurant_FGA, DerrickRose_FGA, DwayneWade_FGA)}
+\KeywordTok{rm}\NormalTok{(KobeBryant_FGA, JoeJohnson_FGA, LeBronJames_FGA, CarmeloAnthony_FGA, DwightHoward_FGA, ChrisBosh_FGA, ChrisPaul_FGA, KevinDurant_FGA, DerrickRose_FGA, DwayneWade_FGA)}
+\KeywordTok{colnames}\NormalTok{(FieldGoalAttempts) <-}\StringTok{ }\NormalTok{Seasons}
+\KeywordTok{rownames}\NormalTok{(FieldGoalAttempts) <-}\StringTok{ }\NormalTok{Players}
+
+\CommentTok{#Points}
+\NormalTok{KobeBryant_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2832}\NormalTok{,}\DecValTok{2430}\NormalTok{,}\DecValTok{2323}\NormalTok{,}\DecValTok{2201}\NormalTok{,}\DecValTok{1970}\NormalTok{,}\DecValTok{2078}\NormalTok{,}\DecValTok{1616}\NormalTok{,}\DecValTok{2133}\NormalTok{,}\DecValTok{83}\NormalTok{,}\DecValTok{782}\NormalTok{)}
+\NormalTok{JoeJohnson_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1653}\NormalTok{,}\DecValTok{1426}\NormalTok{,}\DecValTok{1779}\NormalTok{,}\DecValTok{1688}\NormalTok{,}\DecValTok{1619}\NormalTok{,}\DecValTok{1312}\NormalTok{,}\DecValTok{1129}\NormalTok{,}\DecValTok{1170}\NormalTok{,}\DecValTok{1245}\NormalTok{,}\DecValTok{1154}\NormalTok{)}
+\NormalTok{LeBronJames_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2478}\NormalTok{,}\DecValTok{2132}\NormalTok{,}\DecValTok{2250}\NormalTok{,}\DecValTok{2304}\NormalTok{,}\DecValTok{2258}\NormalTok{,}\DecValTok{2111}\NormalTok{,}\DecValTok{1683}\NormalTok{,}\DecValTok{2036}\NormalTok{,}\DecValTok{2089}\NormalTok{,}\DecValTok{1743}\NormalTok{)}
+\NormalTok{CarmeloAnthony_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2122}\NormalTok{,}\DecValTok{1881}\NormalTok{,}\DecValTok{1978}\NormalTok{,}\DecValTok{1504}\NormalTok{,}\DecValTok{1943}\NormalTok{,}\DecValTok{1970}\NormalTok{,}\DecValTok{1245}\NormalTok{,}\DecValTok{1920}\NormalTok{,}\DecValTok{2112}\NormalTok{,}\DecValTok{966}\NormalTok{)}
+\NormalTok{DwightHoward_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1292}\NormalTok{,}\DecValTok{1443}\NormalTok{,}\DecValTok{1695}\NormalTok{,}\DecValTok{1624}\NormalTok{,}\DecValTok{1503}\NormalTok{,}\DecValTok{1784}\NormalTok{,}\DecValTok{1113}\NormalTok{,}\DecValTok{1296}\NormalTok{,}\DecValTok{1297}\NormalTok{,}\DecValTok{646}\NormalTok{)}
+\NormalTok{ChrisBosh_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1572}\NormalTok{,}\DecValTok{1561}\NormalTok{,}\DecValTok{1496}\NormalTok{,}\DecValTok{1746}\NormalTok{,}\DecValTok{1678}\NormalTok{,}\DecValTok{1438}\NormalTok{,}\DecValTok{1025}\NormalTok{,}\DecValTok{1232}\NormalTok{,}\DecValTok{1281}\NormalTok{,}\DecValTok{928}\NormalTok{)}
+\NormalTok{ChrisPaul_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1258}\NormalTok{,}\DecValTok{1104}\NormalTok{,}\DecValTok{1684}\NormalTok{,}\DecValTok{1781}\NormalTok{,}\DecValTok{841}\NormalTok{,}\DecValTok{1268}\NormalTok{,}\DecValTok{1189}\NormalTok{,}\DecValTok{1186}\NormalTok{,}\DecValTok{1185}\NormalTok{,}\DecValTok{1564}\NormalTok{)}
+\NormalTok{KevinDurant_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{903}\NormalTok{,}\DecValTok{903}\NormalTok{,}\DecValTok{1624}\NormalTok{,}\DecValTok{1871}\NormalTok{,}\DecValTok{2472}\NormalTok{,}\DecValTok{2161}\NormalTok{,}\DecValTok{1850}\NormalTok{,}\DecValTok{2280}\NormalTok{,}\DecValTok{2593}\NormalTok{,}\DecValTok{686}\NormalTok{)}
+\NormalTok{DerrickRose_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{597}\NormalTok{,}\DecValTok{597}\NormalTok{,}\DecValTok{597}\NormalTok{,}\DecValTok{1361}\NormalTok{,}\DecValTok{1619}\NormalTok{,}\DecValTok{2026}\NormalTok{,}\DecValTok{852}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{159}\NormalTok{,}\DecValTok{904}\NormalTok{)}
+\NormalTok{DwayneWade_PTS <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2040}\NormalTok{,}\DecValTok{1397}\NormalTok{,}\DecValTok{1254}\NormalTok{,}\DecValTok{2386}\NormalTok{,}\DecValTok{2045}\NormalTok{,}\DecValTok{1941}\NormalTok{,}\DecValTok{1082}\NormalTok{,}\DecValTok{1463}\NormalTok{,}\DecValTok{1028}\NormalTok{,}\DecValTok{1331}\NormalTok{)}
+\CommentTok{#Matrix}
+\NormalTok{Points <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(KobeBryant_PTS, JoeJohnson_PTS, LeBronJames_PTS, CarmeloAnthony_PTS, DwightHoward_PTS, ChrisBosh_PTS, ChrisPaul_PTS, KevinDurant_PTS, DerrickRose_PTS, DwayneWade_PTS)}
+\KeywordTok{rm}\NormalTok{(KobeBryant_PTS, JoeJohnson_PTS, LeBronJames_PTS, CarmeloAnthony_PTS, DwightHoward_PTS, ChrisBosh_PTS, ChrisPaul_PTS, KevinDurant_PTS, DerrickRose_PTS, DwayneWade_PTS)}
+\KeywordTok{colnames}\NormalTok{(Points) <-}\StringTok{ }\NormalTok{Seasons}
+\KeywordTok{rownames}\NormalTok{(Points) <-}\StringTok{ }\NormalTok{Players}
+
+
+\CommentTok{# Matrix Operations ----}
+
+\NormalTok{FieldGoals}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                2005 2006 2007 2008 2009 2010 2011 2012 2013 2014
+## KobeBryant      978  813  775  800  716  740  574  738   31  266
+## JoeJohnson      632  536  647  620  635  514  423  445  462  446
+## LeBronJames     875  772  794  789  768  758  621  765  767  624
+## CarmeloAnthony  756  691  728  535  688  684  441  669  743  358
+## DwightHoward    468  526  583  560  510  619  416  470  473  251
+## ChrisBosh       549  543  507  615  600  524  393  485  492  343
+## ChrisPaul       407  381  630  631  314  430  425  412  406  568
+## KevinDurant     306  306  587  661  794  711  643  731  849  238
+## DerrickRose     208  208  208  574  672  711  302    0   58  338
+## DwayneWade      699  472  439  854  719  692  416  569  415  509
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{round}\NormalTok{(FieldGoals}\OperatorTok{/}\NormalTok{Games, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                2005 2006 2007 2008 2009 2010 2011 2012 2013 2014
+## KobeBryant     12.2 10.6  9.5  9.8  9.8  9.0  9.9  9.5  5.2  7.6
+## JoeJohnson      7.7  9.4  7.9  7.8  8.4  7.1  7.0  6.2  5.8  5.6
+## LeBronJames    11.1  9.9 10.6  9.7 10.1  9.6 10.0 10.1 10.0  9.0
+## CarmeloAnthony  9.4 10.6  9.5  8.1 10.0  8.9  8.0 10.0  9.6  8.9
+## DwightHoward    5.7  6.4  7.1  7.1  6.2  7.9  7.7  6.2  6.7  6.1
+## ChrisBosh       7.8  7.9  7.6  8.0  8.6  6.8  6.9  6.6  6.2  7.8
+## ChrisPaul       5.2  6.0  7.9  8.1  7.0  5.4  7.1  5.9  6.5  6.9
+## KevinDurant     8.7  8.7  7.3  8.9  9.7  9.1  9.7  9.0 10.5  8.8
+## DerrickRose     5.2  5.2  5.2  7.1  8.6  8.8  7.7  NaN  5.8  6.6
+## DwayneWade      9.3  9.3  8.6 10.8  9.3  9.1  8.5  8.2  7.7  8.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{round}\NormalTok{(MinutesPlayed}\OperatorTok{/}\NormalTok{Games)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                2005 2006 2007 2008 2009 2010 2011 2012 2013 2014
+## KobeBryant       41   41   39   36   39   34   38   39   30   34
+## JoeJohnson       41   41   41   40   38   35   35   37   33   35
+## LeBronJames      43   41   40   38   39   39   38   38   38   36
+## CarmeloAnthony   37   38   36   34   38   36   34   37   39   36
+## DwightHoward     37   37   38   36   35   38   38   36   34   30
+## ChrisBosh        39   39   36   38   36   36   35   33   32   35
+## ChrisPaul        36   37   38   38   38   36   36   33   35   35
+## KevinDurant      36   36   35   39   40   39   39   39   39   34
+## DerrickRose      29   29   29   37   37   37   35  NaN   31   30
+## DwayneWade       39   38   38   39   36   37   33   35   33   32
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Vizualizing with Matplot()----}
+
+\KeywordTok{matplot}\NormalTok{(}\KeywordTok{t}\NormalTok{(FieldGoals), }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{15}\OperatorTok{:}\DecValTok{18}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{))}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"bottomleft"}\NormalTok{, }\DataTypeTok{inset=}\FloatTok{0.01}\NormalTok{, }\DataTypeTok{legend=}\NormalTok{Players,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{),}\DataTypeTok{pch=}\DecValTok{15}\OperatorTok{:}\DecValTok{18}\NormalTok{, }\DataTypeTok{horiz=}\NormalTok{F)        }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Matrix-Operations_and_Vizualizing_with_Matplot_files/figure-latex/Matrix Operations \& Matplot-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{matplot}\NormalTok{(}\KeywordTok{t}\NormalTok{(FieldGoals}\OperatorTok{/}\NormalTok{FieldGoalAttempts), }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{15}\OperatorTok{:}\DecValTok{18}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{))}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"bottomleft"}\NormalTok{, }\DataTypeTok{inset=}\FloatTok{0.01}\NormalTok{, }\DataTypeTok{legend=}\NormalTok{Players,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{),}\DataTypeTok{pch=}\DecValTok{15}\OperatorTok{:}\DecValTok{18}\NormalTok{, }\DataTypeTok{horiz=}\NormalTok{F)        }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Matrix-Operations_and_Vizualizing_with_Matplot_files/figure-latex/Matrix Operations \& Matplot-2.pdf}
+
+\end{document}
